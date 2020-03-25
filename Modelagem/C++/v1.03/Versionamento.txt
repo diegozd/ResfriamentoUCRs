@@ -1,0 +1,42 @@
+log de modificações das versões:
+
+versão 1.03:
+
+29/11/2018 - Diego Telles
+Inclusão da tortuosidade no cálculo da área da partícula
+	-> RESFRIAMENTO.cpp linhas 277 e 126
+	removida essa modifiação em 30/11
+
+Adicionado restrição de temperatura inferiror para o cálculo da viscosidade do líquido 
+	-> PROPRIEDADES.cpp linhas 42, 82, 122, 162, 213 e 237
+	
+30/11/2018 - Diego Telles
+Remoção da tortuosidade do cálculo da área da partícula
+	-> RESFRIAMENTO.cpp linhas 290 e 133
+	
+Substituição da tortuosidade pelo porosidade PSO
+	-> main.cpp linha 99 e 239
+	-> EnxameParticulas.cpp linha 220
+	
+Ajustes de apresentação de resultados
+	-> main.cpp linhas 123, 212, 215
+
+03/12/2018
+Revisado o critério para método de cálculo do fT em CalcTcoq
+	-> CONDUCAO.cpp linhas 75 e 82 - substituído (DT1 - DT2) == 0.0 por (DT1 - DT2) >= 0.0000000001
+	
+04/12/2018
+Proteção contra cross de temperatura
+	-> CONVECCAO.cpp todo trecho após Qmaximo linha 168
+	-> CONDUCAO.cpp linha 98
+	
+05/12/2018
+Alteração na proteção do calor máximo retirado do coque
+	-> CONVECCAO.cpp linha 170
+	
+alteração no cálculo de acumulo de água
+	-> RESFRIAMENTO.cpp linha 254 (AgAcumu)
+	
+Alteração do cálculo de vazão de água no elemento contuido na iterface
+	-> RESFRIAMENTO.cpp comentei linha  435 (D.mliq[D.ii][D.jj+1])
+	
