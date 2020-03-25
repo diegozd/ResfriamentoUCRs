@@ -1,0 +1,201 @@
+﻿#Arquivo de entrada para utilização do modelo de resfriamento de reatores de coque. Desenvolvido por Diego Telles (U3YP) e Leonardo Caliman (CDW7)
+#Não alterar a formatação do arquivo, apenas os valores das variáveis. Não mudar os dados das linhas. A linha na qual deve estar cada informação está entre chaves {}. Recomendado o uso do Notepad++.
+#CASO
+B
+#Semente da simulação {esta informação deve estar na linha 6} //2023654 6951496 9517535 82728520 69498
+2023654
+
+####   DADOS DE GEOMETRIA   ####
+#Diâmetro do leito [m] {10}
+6.4
+#Altura do Leito de coque [m] {12}
+21.2
+#Dimâmetro menor do cone (diâmetro da delta valve) [m] {14}
+2.2
+#Altura do cone (distância vertical da delta até a solda)[m] {16}
+4.685
+
+####    DADOS DE PROCESSO    ####
+#Pressão do leito durante resfriamento[kgf/cm² man] {20}
+3.0
+#Temperatura inicial do coque [°C] {22}
+420.2
+#Curva de refriamento:
+#numero de patamares {25}
+8
+#Dado composto por 3 colunas: {28}
+#1ª Vazão do fluido injetado [t/h]; 2ª tempo acumulado [min]; 3ª temperatura do fluido [°C]
+3.0 50.0 200.0
+8.0 140.0 200.0
+15.2 200.0 50.0
+19.8 304.0 50.0
+35.0 426.0 50.0
+74.75 454.0 50.0
+215.0 495.0 46.0
+0.1 500.0 46.0
+
+####    PROPRIEDADES DO COQUE   ####
+#Massa específica do coque [kg/m³] {28+numero de patamares+3}
+1350.0
+#Capacidade calorífica do coque [kJ/kg.K] {28+numero de patamares+5}
+1.26
+#Condutividade térmica do coque [W/m.K] {28+numero de patamares+7}
+0.26
+#Porosidade do leito {28+numero de patamares+9}	//valor tipico 0.37; valor calculado 0.11
+0.37 
+#Emissividade do coque {28+numero de patamares+11}
+0.95
+
+####    PARÂMETROS DE AJUSTE DO MODELO    ####
+#Diâmetro médio das particulas de coque no leito (Dp) [m] {28+numero de patamares+15}
+1.0
+#Comprimento da interface/espuma (Le) [m] {28+numero de patamares+17}
+0.4
+#Parâmetro da curva da interface/espuma (zd) {28+numero de patamares+19}
+10.0
+#Tortuosidade do leito (psi) {28+numero de patamares+21}
+1.0
+#Parâmetro do coeficiente de convecção forçada (mhc) {28+numero de patamares+23}
+1.0
+#Parâmetro do coeficiente de convecção livre (mhl) {28+numero de patamares+25}
+1.0
+#Parâmetro do coeficiente de convecção em ebulição (mhe) {28+numero de patamares+27}
+1.0
+
+####    PARÂMETROS NUMÉRICOS DO MODELO    ####
+#Altura do elemento finito de volume [m] {28+numero de patamares+31}
+0.2
+#Passo de integração no tempo [s] {28+numero de patamares+33}
+20
+#Numero de amostras de tempo para exibição do resultado {28+numero de patamares+35}
+100
+#Numero máximo de iterações por loop {28+numero de patamares+37}
+100
+
+####    PARÂMETROS PARA O ENXAME DE PARTÍCULAS    ####
+#Se deseja que o seja feito o PSO atriubua '1' a esta variável, caso não queira atribua '0' {28+numero de patamares+41}
+1
+#Numero de iterações do PSO {28+numero de patamares+43}
+30
+#Numero de particulas para o PSO {28+numero de patamares+45}
+100
+#Utilize 1 para os parâmetros que deseja otimizar nesta ordem; Dp, Le, zd, eps, mhc, mhl, mhe {28+numero de patamares+47}
+1 0 0 0 1 1 1
+#Valores de máximo para os parâmetros nesta ordem; Dp, Le, zd, eps, mhc, mhl, mhe. Este vetor deve conter o numero de posições igual ao numero de parâmetros válidos {28+numero de patamares+49}
+6.4 4.0 4.0 5.0
+#Valores de mínimo para os parâmetros nesta ordem; Dp, Le, zd, eps, mhc, mhl, mhe. Este vetor deve conter o numero de posições igual ao numero de parâmetros válidos {28+numero de patamares+51}
+0.1 0.0 0.0 0.0
+#Dados experimentais de resfriamento na regição de solda: 
+#Total de água vaporizada experimental (t) {28+numero de patamares+54}
+85.3
+#numero de dados de temperatura {28+numero de patamares+56}
+101
+#Dado composto por 2 colunas. {28+numero de patamares+59}
+#1ª tempo [min]; 2ª temperatura na solda em [°C]
+0 420.2
+5 419.8
+10 419.2
+15 418.5
+20 417.6
+25 416.7
+30 415.7
+35 414.8
+40 413.8
+45 412.7
+50 411.7
+55 410.6
+60 409.5
+65 408.4
+70 407.3
+75 406.3
+80 405.2
+85 404.1
+90 402.9
+95 401.8
+100 400.6
+105 399.4
+110 398.0
+115 396.6
+120 395.0
+125 393.2
+130 391.3
+135 389.4
+140 387.1
+145 384.8
+150 382.5
+155 379.8
+160 376.1
+165 370.5
+170 364.8
+175 358.9
+180 352.6
+185 345.7
+190 338.9
+195 332.1
+200 325.2
+205 318.4
+210 311.6
+215 304.9
+220 299.4
+225 293.9
+230 288.5
+235 283.0
+240 277.7
+245 272.3
+250 266.9
+255 261.5
+260 256.1
+265 250.9
+270 246.0
+275 241.4
+280 237.1
+285 232.9
+290 228.5
+295 224.8
+300 221.2
+305 217.8
+310 214.4
+315 210.9
+320 207.5
+325 204.2
+330 200.7
+335 197.2
+340 193.8
+345 190.3
+350 186.4
+355 182.5
+360 178.9
+365 175.3
+370 171.6
+375 168.0
+380 164.4
+385 160.8
+390 157.4
+395 154.2
+400 151.0
+405 147.9
+410 145.3
+415 142.6
+420 140.0
+425 137.4
+430 134.8
+435 132.1
+440 129.5
+445 126.8
+450 124.2
+455 121.5
+460 118.8
+465 116.1
+470 113.7
+475 111.3
+480 108.9
+485 106.5
+490 104.2
+495 102.6
+500 101.2
+
+
+
+// A partir daqui posso escrever o que quiser
+// 6.4 10.0 2.0 1.0 2.0 2.0 5.0
+// 0.1 0.0 0.2 0.0 0.0 0.0 0.0
